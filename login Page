@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form Validation</title>
+	<style type="text/css">
+		/*styling of body*/
+		body
+		{
+			background-color: gray;
+			font-family: Times New Roman;
+		}
+
+		/*styling of labeling name*/
+		label
+		{
+			color:yellow;
+			font-size: 20px;
+		}
+
+		/*styling of header*/
+		header
+		{
+			max-width: 500px;
+			margin: auto;
+			padding: 100px;
+		}
+		/*Styling of input box*/
+		input
+		{
+			border-radius: 10px;
+			width: 300px;
+			height: 40px;
+			color: maroon;
+		}
+		/*color change in placeholder*/
+		::placeholder
+		 {
+			color: black;
+		}
+
+		/*styling of labeling message for id =l1 and l2*/
+		#l1
+		{
+			visibility: hidden; 
+			color: maroon;
+		}
+		#l2
+		{
+			visibility: hidden; 
+			color: maroon;
+		}
+		/*styling of button*/
+		#btn
+		{
+			background-color: red;
+			color:black;
+			font-size: 21px ; 
+			padding: 20px;
+			margin-top: 10px;
+		}
+		/*Hover effect in submit and reset button*/
+		#btn:hover
+		{
+			background-color:maroon ;
+		}
+	</style>
+
+	<script type="text/javascript">
+		function Validation() {
+			var uname=document.getElementById('uname');
+			var password=document.getElementById('pass');
+			if(uname.value.trim()=="")
+			{
+				//alert("No Blank space is allowed!!");
+				document.getElementById('l1').style.visibility="visible";
+				uname.style.border="solid 5px red";
+				return false;
+			}
+			else if (password.value.trim()=="")
+			{
+				alert("No Blank space is allowed!!");
+				password.style.border="solid 5px red";
+				return false;
+			}
+			else if (password.value.trim().length<6) 
+			{
+				//alert("Password must be greater than and equal to 6");
+				document.getElementById('l2').style.visibility="visible";
+				password.style.border="solid 5px red";
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		}
+	</script>
+</head>
+<body>
+<header>
+<h1 style=" color:maroon; font-family: Times New Roman;">LOGIN FORM</h1>
+<form action="#" onsubmit="return Validation()">
+<label>USERNAME:</label><br>
+<input id="uname" type="text" name="uname" placeholder="Enter Username" /><br>
+<label id="l1">Invalid Username</label>
+<br><br>
+<label>PASSWORD:</label><br>
+<input id="pass" type="password" name="pass" placeholder="Enter Password" /><br>
+<label id="l2"> Password must be greater than and equal to 6</label>
+<br><br>
+<button type="submit" id="btn">Submit Form</button>
+<button type="reset" id=btn>Reset Form</button>
+</form>
+</header>
+</body>
+</html>
